@@ -101,10 +101,14 @@ if st.button("🔍 Predict PM2.5", use_container_width=True):
     input_df = pd.DataFrame(
         [[input_values[feature] for feature in metadata["features"]]],
         columns=metadata["features"]
-    )
+    ).astype(float)
+
+    # Convert to numpy array to avoid scikit-learn feature-name mismatch
+    # between training and inference environments
+    input_array = input_df.values
 
     # Apply the same preprocessing used during training
-    input_imputed = imputer.transform(input_df)
+    input_imputed = imputer.transform(input_array)
 
     # Scale input only when the selected model is SVR
     if metadata["requires_scaling"]:
