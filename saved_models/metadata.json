@@ -1,0 +1,16 @@
+{
+    "best_model": "Random Forest",
+    "features": [
+        "PM10",
+        "Temperature",
+        "Humidity",
+        "Wind_Speed",
+        "Rainfall",
+        "Previous_Day_PM25"
+    ],
+    "target": "PM2.5",
+    "requires_scaling": false,
+    "MAE": 11.01585705733974,
+    "MSE": 224.69182246548988,
+    "R2": 0.9577003233829362
+}
